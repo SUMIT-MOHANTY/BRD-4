@@ -35,5 +35,10 @@ class RegisterView(APIView):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
+from rest_framework import viewsets
+from .models import User
+from .serializers import UserSerializer
+
+class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer

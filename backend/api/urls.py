@@ -23,4 +23,14 @@ router.register(r'users', UserViewSet, basename='user')
 urlpatterns = [
     path('v1/', include(router.urls)),
     path('v1/auth/register/', RegisterView.as_view(), name='auth-register'),
+from rest_framework.routers import DefaultRouter
+from tasks.views import TaskViewSet
+from users.views import UserViewSet
+
+router = DefaultRouter()
+router.register(r'tasks', TaskViewSet, basename='task')
+router.register(r'users', UserViewSet, basename='user')
+
+urlpatterns = [
+    path('', include(router.urls)),
 ]
