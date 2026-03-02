@@ -1,13 +1,3 @@
-import { Routes, Route, Link } from 'react-router-dom';
-import Home from './pages/Home.jsx';
-function App() {
-  return (
-    <div>
-      <nav><Link to="/">Home</Link></nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </div>
-  );
-}
+import React from 'react';
+function App() {return <h1>React‑Django Bootstrap</h1>;}
 export default App;
