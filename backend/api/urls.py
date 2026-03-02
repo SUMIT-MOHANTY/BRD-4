@@ -1,5 +1,7 @@
 from django.urls import path
 from .swagger import get_schema_view
+from django.urls import path, include
+from backend.users import urls as users_urls
 
 schema_view = get_schema_view()
 urlpatterns = [
@@ -13,3 +15,5 @@ router.register(r'users', None, basename='user')
 router.register(r'books', None, basename='book')
 router.register(r'reservations', None, basename='reservation')
 urlpatterns = [path('', include(router.urls))]
+    path('users/', include(users_urls)),
+]

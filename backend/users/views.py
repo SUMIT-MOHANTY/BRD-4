@@ -11,3 +11,8 @@ from .serializers import MemberSerializer
 class MemberViewSet(viewsets.ModelViewSet):
     queryset = Member.objects.all()
     serializer_class = MemberSerializer
+from rest_framework.viewsets import ViewSet
+
+class UserViewSet(ViewSet):
+    def list(self, request):
+        return None
