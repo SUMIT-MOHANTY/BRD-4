@@ -41,3 +41,6 @@ router.register(r'tasks', TaskViewSet, basename='task')
 urlpatterns = [
     path('', include(router.urls)),
 ]
+
+from django.urls import include, path
+urlpatterns += [path('circulation/', include('circulation.urls'))]
