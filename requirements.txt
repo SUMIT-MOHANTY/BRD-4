@@ -1,1 +1,4 @@
-pytest>=7.0
+Django>=4.2,<5
+djangorestframework>=3.14
+drf-yasg>=1.21
+psycopg2-binary>=2.9
