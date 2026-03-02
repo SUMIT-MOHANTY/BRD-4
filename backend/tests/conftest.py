@@ -1,7 +1,9 @@
+import os, django
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
+django.setup()
+
 import pytest
 from rest_framework.test import APIClient
-from django.urls import reverse
-from backend.users.models import User
 
 @pytest.fixture
 def api_client():
@@ -9,13 +11,10 @@ def api_client():
 
 @pytest.fixture
 def create_user():
-    def _create(username="testuser", password="testpass123", **extra):
-        return User.objects.create_user(username=username, password=password, **extra)
+    from django.contrib.auth import get_user_model
+    User = get_user_model()
+    def _create(**kwargs):
+        defaults = {'password': 'testpass123'}
+        defaults.update(kwargs)
+        return User.objects.create_user(**defaults)
     return _create
-
-@pytest.fixture
-def auth_token(api_client, create_user):
-    user = create_user()
-    url = reverse('auth-login')
-    resp = api_client.post(url, {"username": user.username, "password": "testpass123"}, format='json')
-    return resp.data.get('access')

@@ -1,2 +1,11 @@
-from django.urls import path
-urlpatterns = []
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from tasks.views import TaskViewSet
+
+router = DefaultRouter()
+router.register(r'tasks', TaskViewSet, basename='task')
+
+urlpatterns = [
+    path('api/v1/', include('auth.urls')),
+    path('api/v1/', include(router.urls)),
+]
