@@ -1,8 +1,12 @@
-from rest_framework.routers import DefaultRouter
-from backend.library.views import BookViewSet, MemberViewSet, TransactionViewSet, ReservationViewSet
+from django.urls import include, path
+from rest_framework import routers
+from users.views import UserViewSet
+from catalog.views import ItemViewSet
 
-router = DefaultRouter()
-router.register(r'books', BookViewSet, basename='book')
-router.register(r'members', MemberViewSet, basename='member')
-router.register(r'transactions', TransactionViewSet, basename='transaction')
-router.register(r'reservations', ReservationViewSet, basename='reservation')
+router = routers.DefaultRouter()
+router.register(r'users', UserViewSet, basename='user')
+router.register(r'items', ItemViewSet, basename='item')
+
+urlpatterns = [
+    path('', include(router.urls)),
+]

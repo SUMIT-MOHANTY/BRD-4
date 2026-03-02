@@ -1,0 +1,1 @@
+import datetime\n\ndef build_error_response(error_code, detail, status_code):\n    return {\n        "error": error_code,\n        "detail": detail,\n        "status_code": status_code,\n        "timestamp": datetime.datetime.utcnow().isoformat() + "Z"\n    }\n
