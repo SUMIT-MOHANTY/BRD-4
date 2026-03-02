@@ -16,4 +16,11 @@ router.register(r'books', None, basename='book')
 router.register(r'reservations', None, basename='reservation')
 urlpatterns = [path('', include(router.urls))]
     path('users/', include(users_urls)),
+from django.urls import include, path
+from rest_framework import routers
+from reservations.views import ReservationViewSet
+router = routers.DefaultRouter()
+router.register(r'reservations', ReservationViewSet)
+urlpatterns = [
+    path('', include(router.urls)),
 ]

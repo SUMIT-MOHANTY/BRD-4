@@ -4,3 +4,4 @@ class MemberSerializer(serializers.ModelSerializer):
     class Meta:
         model = Member
         fields = ('id', 'username', 'email')
+        fields = ['id', 'username', 'email']

@@ -1,14 +1,11 @@
 from core.models import BaseModel
 from django.db import models
-from django.conf import settings
+from books.models import Book
+from users.models import Member
 class Reservation(BaseModel):
-    STATUS_CHOICES = [
-        ('PENDING', 'Pending'),
-        ('FULFILLED', 'Fulfilled'),
-        ('CANCELLED', 'Cancelled'),
-        ('EXPIRED', 'Expired'),
-    ]
-    member = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    book = models.ForeignKey('books.Book', on_delete=models.CASCADE)
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='PENDING')
-    expires_at = models.DateTimeField(null=True, blank=True)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='reservations')
+    member = models.ForeignKey(Member, on_delete=models.CASCADE, related_name='reservations')
+    reserved_at = models.DateTimeField(auto_now_add=True)
+    is_active = models.BooleanField(default=True)
+    def __str__(self):
+        return f"{self.member} reserves {self.book}"
