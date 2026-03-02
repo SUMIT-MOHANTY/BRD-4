@@ -1,0 +1,6 @@
+#!/usr/bin/env python3
+import sys, subprocess
+try:
+    subprocess.check_call([sys.executable, '-m', 'pytest'] + sys.argv[1:])
+except Exception as e:
+    sys.exit(1)
