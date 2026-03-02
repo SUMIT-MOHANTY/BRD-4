@@ -37,6 +37,13 @@ from tasks.views import TaskViewSet
 router = DefaultRouter()
 router.register(r'users', UserViewSet, basename='user')
 router.register(r'tasks', TaskViewSet, basename='task')
+from rest_framework.routers import DefaultRouter
+from users.views import UserViewSet
+from tasks.views import BookViewSet
+
+router = DefaultRouter()
+router.register(r'users', UserViewSet)
+router.register(r'books', BookViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

@@ -56,3 +56,9 @@ class UserViewSet(viewsets.ModelViewSet):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response({'detail': 'User created'}, status=status.HTTP_201_CREATED)
+from rest_framework import viewsets
+from .models import User
+from .serializers import UserSerializer
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
