@@ -1,5 +1,5 @@
 from rest_framework.viewsets import ViewSet
 
-class UserViewSet(ViewSet):
+class ReportingViewSet(ViewSet):
     def list(self, request):
         return None

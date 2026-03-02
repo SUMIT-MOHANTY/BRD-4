@@ -1,0 +1,2 @@
+class ViewSet:
+    pass
