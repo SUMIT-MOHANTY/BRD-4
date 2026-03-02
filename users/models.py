@@ -1,5 +1,6 @@
-from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.db import models
+from core.models import BaseModel
 
-class User(AbstractUser):
-    pass
+class Member(BaseModel, AbstractUser):
+    phone = models.CharField(max_length=20, blank=True)

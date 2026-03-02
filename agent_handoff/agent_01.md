@@ -17,4 +17,12 @@
 - Build Status: `success`
 - Fix Iterations: `4`
 - Summary: Create API endpoints for book reservations: reserve a book (when unavailable), view member's reservations, cancel reservation, and auto-notify when reserved book becomes available. Include reservation status tracking (pending, fulfilled, cancelled, expired).
+## 2026-03-02T09:44:09Z - Main Task
+- Agent: `agent_01`
+- Task: `Common Utilities & API Service Layer`
+- Task ID: `18326`
+- Branch: `agent/common-utilities-api-service-layer-18326`
+- Build Status: `success`
+- Fix Iterations: `1`
+- Summary: Build shared utilities and API service layer for the application. Create API service modules: authService (login, register, logout, token refresh), booksService (CRUD operations, search, filter), membersService (CRUD operations), transactionsService (checko...
 
